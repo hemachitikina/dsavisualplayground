@@ -1,0 +1,70 @@
+/* TreeVisualizer.css */
+.tree-visualizer-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls input {
+  padding: 8px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.controls button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #4338ca;
+}
+
+.tree-canvas {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  overflow: auto;
+}
+
+.tree-node {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.tree-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.output-section {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.output-section h3 {
+  margin: 10px 0 5px 0;
+}
