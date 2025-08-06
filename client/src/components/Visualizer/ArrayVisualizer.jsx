@@ -214,10 +214,35 @@ function ArrayVisualizer() {
     setIsSorting(false);
   };
   
-
+  const [customInput, setCustomInput] = useState("");
   return (
     <div className="array-container">
       <Link to="/" className="back-button">← Back to Dashboard</Link>
+
+      <div className="input-builder">
+  <label>Enter numbers (comma‑separated):</label>
+  <input
+    type="text"
+    value={customInput}
+    placeholder="e.g. 5,3,8,1"
+    onChange={e => setCustomInput(e.target.value)}
+  />
+  <button
+    onClick={() => {
+      const parsed = customInput
+        .split(",")
+        .map(str => parseFloat(str.trim()))
+        .filter(num => !isNaN(num));
+      if (parsed.length > 0) {
+        setArray(parsed);
+        setMessage("Loaded custom array!");
+      }
+    }}
+    disabled={isSorting}
+  >
+    Load Array
+  </button>
+</div>
 
       <h2>Array Visualizer</h2>
       <p className="status">{message}</p>

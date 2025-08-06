@@ -115,3 +115,32 @@
   cursor: pointer;
 
 }
+.input-builder {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+}
+.input-builder input {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.input-builder label {
+  font-size: 0.95rem;
+  color: #333;
+}
+.input-builder button {
+  padding: 8px 14px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.input-builder button:hover {
+  background-color: #5a6268;
+}
+

@@ -163,7 +163,8 @@ const TreeVisualizer = () => {
   const handleBack = () => {
     window.history.back();
   };
-
+const [treeInput, setTreeInput] = useState("");
+const [message, setMessage] = useState('');
   return (
     <div className="tree-visualizer-container">
       <button className="back-button" onClick={handleBack}>
@@ -182,6 +183,24 @@ const TreeVisualizer = () => {
         <button onClick={() => handleTraversal("preorder")}>Pre-order</button>
         <button onClick={() => handleTraversal("postorder")}>Post-order</button>
       </div>
+      <div className="input-builder">
+        <p className="status-message">{message}</p>
+  <label>Tree Values (BST insert order):</label>
+  <input
+    type="text"
+    value={treeInput}
+    placeholder="e.g. 7,4,9,1,6"
+    onChange={e => setTreeInput(e.target.value)}
+  />
+  <button onClick={() => {
+    const values = treeInput.split(",").map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+    if (values.length) {
+      setRoot(null);
+      values.forEach(v => insertNode(v));
+      setMessage("Tree loaded from input.");
+    }
+  }}>Load Tree</button>
+</div>
 
       <div className="tree-canvas">{renderTree(root)}</div>
 

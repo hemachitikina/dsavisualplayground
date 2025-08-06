@@ -10,6 +10,7 @@ const GraphVisualizer = () => {
   const [positions, setPositions] = useState({});
   const [visited, setVisited] = useState([]);
   const [startNode, setStartNode] = useState('');
+  const [message, setMessage] = useState("");
 
   const containerRef = useRef(null);
 
@@ -132,6 +133,8 @@ const GraphVisualizer = () => {
       transform: `rotate(${angle}deg)`,
     };
   };
+  const [nodeInput, setNodeInput] = useState("");
+const [edgeInput, setEdgeInput] = useState("");
 
   return (
     <div className="graph-container">
@@ -150,6 +153,41 @@ const GraphVisualizer = () => {
         <button onClick={handleDFS}>Run DFS</button>
         <button onClick={handleBFS}>Run BFS</button>
       </div>
+      <div className="input-builder">
+  <label>Nodes (comma‑separated):</label>
+  <input
+    type="text"
+    value={nodeInput}
+    placeholder="e.g. A,B,C"
+    onChange={e => setNodeInput(e.target.value)}
+  />
+  <button onClick={() => {
+    const nodesArr = nodeInput.split(",").map(n => n.trim()).filter(n => n);
+    setNodes(nodesArr);
+    setPositions({}); setEdges([]); setVisited([]);
+    setMessage("Loaded nodes!");
+  }}>Load Nodes</button>
+</div>
+
+<div className="input-builder">
+  <p className="status-message">{message}</p>
+  <label>Edges (comma‑separated pairs):</label>
+  <input
+    type="text"
+    value={edgeInput}
+    placeholder="e.g. A‑B,B‑C"
+    onChange={e => setEdgeInput(e.target.value)}
+  />
+  <button onClick={() => {
+    const edgeArr = edgeInput.split(",").map(e => e.trim())
+      .map(pair => {
+        const [f,t] = pair.split("-").map(s => s.trim());
+        return (f && t) ? { from: f, to: t } : null;
+      }).filter(e => e && nodes.includes(e.from) && nodes.includes(e.to));
+    setEdges(edgeArr);
+    setMessage("Loaded edges!");
+  }}>Load Edges</button>
+</div>
 
       <div className="graph-visualization" ref={containerRef}>
         {edges.map((edge, index) => (
