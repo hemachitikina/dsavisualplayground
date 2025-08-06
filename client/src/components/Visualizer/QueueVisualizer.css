@@ -1,50 +1,82 @@
 .queue-container {
   text-align: center;
-  padding: 2rem;
-  font-family: 'Segoe UI', sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #00bfff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.queue {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
+.queue-controls {
   margin-bottom: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  background: #f9f9f9;
-  padding: 15px;
-  overflow-x: auto;
 }
 
-.queue-element {
-  width: 60px;
+.queue-controls input {
   padding: 10px;
-  margin: 0 8px;
-  background-color: #9b59b6;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.queue-element.animate {
-  transform: scale(1.1);
-  background-color: #f39c12;
-}
-
-.buttons button {
-  margin: 0 10px;
-  padding: 10px 20px;
   font-size: 16px;
-  border: none;
-  background-color: #4caf50;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
+  width: 200px;
+  margin-right: 10px;
 }
 
-.buttons button:hover {
-  background-color: #45a049;
+.queue-controls button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #00bfff;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.queue-controls button:hover {
+  background-color: #009acd;
+}
+
+.queue-message {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  min-height: 20px;
+}
+
+.queue-visual {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  border: 1px dashed #00bfff;
+  border-radius: 8px;
+  background-color: #e6f7ff;
+  min-height: 60px;
+}
+
+.queue-item {
+  padding: 15px 25px;
+  border: 2px solid #00bfff;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 18px;
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.queue-item.highlight {
+  background-color: #ffff99;
+  transform: scale(1.1);
+}
+
+.front-label {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #ff4500;
 }

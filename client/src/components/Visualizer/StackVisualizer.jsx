@@ -1,45 +1,85 @@
-import React, { useState } from 'react';
-import './StackVisualizer.css';
+import React, { useState } from "react";
+import "./StackVisualizer.css";
 
-function StackVisualizer() {
+const StackVisualizer = () => {
   const [stack, setStack] = useState([]);
-  const [animatingIndex, setAnimatingIndex] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [highlightTop, setHighlightTop] = useState(false);
+  const [message, setMessage] = useState(""); // NEW
 
-  const pushElement = () => {
-    const newValue = Math.floor(Math.random() * 50) + 1;
-    setStack(prev => [...prev, newValue]);
-    setAnimatingIndex(stack.length);
-    setTimeout(() => setAnimatingIndex(null), 300);
+  const handlePush = () => {
+    if (inputValue === "") {
+      setMessage("Please enter a value to push.");
+      return;
+    }
+    setStack((prev) => [...prev, inputValue]);
+    setMessage(`Pushed: "${inputValue}"`);
+    setInputValue("");
   };
 
-  const popElement = () => {
-    if (stack.length === 0) return;
-    setAnimatingIndex(stack.length - 1);
-    setTimeout(() => {
-      setStack(prev => prev.slice(0, -1));
-      setAnimatingIndex(null);
-    }, 300);
+  const handlePop = () => {
+    if (stack.length === 0) {
+      setMessage("Stack is empty. Nothing to pop.");
+      return;
+    }
+    const popped = stack[stack.length - 1];
+    setStack((prev) => prev.slice(0, -1));
+    setMessage(`Popped: "${popped}"`);
+  };
+
+  const handlePeek = () => {
+    if (stack.length === 0) {
+      setMessage("Stack is empty. Nothing to peek.");
+      return;
+    }
+    const topItem = stack[stack.length - 1];
+    setHighlightTop(true);
+    setMessage(`Peeked: "${topItem}"`);
+    setTimeout(() => setHighlightTop(false), 1000);
+  };
+
+  const handleReset = () => {
+    setStack([]);
+    setMessage("Stack has been reset.");
   };
 
   return (
     <div className="stack-container">
       <h2>Stack Visualizer (LIFO)</h2>
-      <div className="stack">
-        {stack.map((value, index) => (
-          <div
-            key={index}
-            className={`stack-element ${index === animatingIndex ? 'animate' : ''}`}
-          >
-            {value}
-          </div>
-        ))}
+
+      <div className="stack-controls">
+        <input
+          type="text"
+          placeholder="Enter value"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={handlePush}>Push</button>
+        <button onClick={handlePop}>Pop</button>
+        <button onClick={handlePeek}>Peek</button>
+        <button onClick={handleReset}>Reset</button>
       </div>
-      <div className="buttons">
-        <button onClick={pushElement}>Push</button>
-        <button onClick={popElement}>Pop</button>
+
+      {/* Message */}
+      <div className="stack-message">{message}</div>
+
+      {/* Stack visual */}
+      <div className="stack-visual">
+        {[...stack].reverse().map((item, index) => {
+          const isTop = index === 0; // After reverse, index 0 is top
+          return (
+            <div
+              key={index}
+              className={`stack-item ${isTop && highlightTop ? "highlight" : ""}`}
+            >
+              {isTop && <span className="top-label">TOP</span>}
+              {item}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
-}
+};
 
 export default StackVisualizer;

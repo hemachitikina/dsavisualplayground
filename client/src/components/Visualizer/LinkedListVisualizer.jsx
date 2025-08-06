@@ -2,49 +2,98 @@ import React, { useState } from 'react';
 import './LinkedListVisualizer.css';
 
 function LinkedListVisualizer() {
-  const [list, setList] = useState([10, 20, 30]);
-  const [activeIndex, setActiveIndex] = useState(null);
-  const [isTraversing, setIsTraversing] = useState(false);
+  const [list, setList] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [message, setMessage] = useState('');
 
-  const insertAtEnd = () => {
-    const newValue = Math.floor(Math.random() * 100) + 1;
-    setList([...list, newValue]);
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
   };
 
-  const deleteFromEnd = () => {
-    if (list.length === 0) return;
-    setList(list.slice(0, -1));
+  const insertFront = () => {
+    if (inputValue === '') return;
+    setList([inputValue, ...list]);
+    setMessage(`Inserted ${inputValue} at front`);
+    setInputValue('');
   };
 
-  const traverseList = async () => {
-    setIsTraversing(true);
-    for (let i = 0; i < list.length; i++) {
-      setActiveIndex(i);
-      await new Promise((resolve) => setTimeout(resolve, 500)); // delay for animation
+  const insertRear = () => {
+    if (inputValue === '') return;
+    setList([...list, inputValue]);
+    setMessage(`Inserted ${inputValue} at rear`);
+    setInputValue('');
+  };
+
+  const deleteFront = () => {
+    if (list.length === 0) {
+      setMessage('List is empty!');
+      return;
     }
-    setActiveIndex(null);
-    setIsTraversing(false);
+    const removed = list[0];
+    setList(list.slice(1));
+    setMessage(`Deleted ${removed} from front`);
+  };
+
+  const deleteRear = () => {
+    if (list.length === 0) {
+      setMessage('List is empty!');
+      return;
+    }
+    const removed = list[list.length - 1];
+    setList(list.slice(0, -1));
+    setMessage(`Deleted ${removed} from rear`);
+  };
+
+  const peekFront = () => {
+    if (list.length === 0) {
+      setMessage('List is empty!');
+    } else {
+      setMessage(`Front value is ${list[0]}`);
+    }
+  };
+
+  const peekRear = () => {
+    if (list.length === 0) {
+      setMessage('List is empty!');
+    } else {
+      setMessage(`Rear value is ${list[list.length - 1]}`);
+    }
+  };
+
+  const resetList = () => {
+    setList([]);
+    setMessage('List reset successfully!');
   };
 
   return (
     <div className="linkedlist-container">
       <h2>Linked List Visualizer</h2>
-      
-      <div className="linkedlist">
-        {list.map((value, index) => (
-          <div key={index} className="node-wrapper">
-            <div className={`node ${index === activeIndex ? 'active' : ''}`}>
-              {value}
-            </div>
-            {index !== list.length - 1 && <div className="arrow">→</div>}
-          </div>
-        ))}
+
+      <div className="linkedlist-controls">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleChange}
+          placeholder="Enter value"
+        />
+        <button onClick={insertFront}>Insert Front</button>
+        <button onClick={insertRear}>Insert Rear</button>
+        <button onClick={deleteFront}>Delete Front</button>
+        <button onClick={deleteRear}>Delete Rear</button>
+        <button onClick={peekFront}>Peek Front</button>
+        <button onClick={peekRear}>Peek Rear</button>
+        <button onClick={resetList}>Reset</button>
       </div>
 
-      <div className="controls">
-        <button onClick={insertAtEnd} disabled={isTraversing}>Insert at End</button>
-        <button onClick={deleteFromEnd} disabled={isTraversing}>Delete from End</button>
-        <button onClick={traverseList} disabled={isTraversing}>Traverse</button>
+      <div className="linkedlist-message">{message}</div>
+
+      <div className="linkedlist-visual">
+        {list.map((value, index) => (
+          <div key={index} className="list-node">
+            {value}
+            {index < list.length - 1 && <span className="arrow">→</span>}
+          </div>
+        ))}
       </div>
     </div>
   );

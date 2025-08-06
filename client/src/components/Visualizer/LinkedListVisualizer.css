@@ -1,78 +1,74 @@
 .linkedlist-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.linkedlist-container h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: #2c3e50;
-}
-
-.linkedlist {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.node-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.node {
-  background-color: #3498db;
-  color: #fff;
-  padding: 1rem 1.2rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  min-width: 60px;
   text-align: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ff69b4;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  background-color: #fff0f5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.node.active {
-  background-color: #2ecc71;
-  transform: scale(1.1);
+.linkedlist-controls {
+  margin-bottom: 20px;
 }
 
-.arrow {
-  font-size: 2rem;
-  margin: 0 0.8rem;
-  color: #555;
+.linkedlist-controls input {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+  margin-right: 10px;
 }
 
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.controls button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #2980b9;
-  color: white;
+.linkedlist-controls button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
+  background-color: #ff69b4;
+  color: white;
   transition: background-color 0.3s ease;
 }
 
-.controls button:hover {
-  background-color: #1f618d;
+.linkedlist-controls button:hover {
+  background-color: #d94d94;
 }
 
-.controls button:disabled {
-  background-color: #bdc3c7;
-  cursor: not-allowed;
+.linkedlist-message {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+  min-height: 20px;
+}
+
+.linkedlist-visual {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  border: 1px dashed #ff69b4;
+  border-radius: 8px;
+  background-color: #ffe4ec;
+  min-height: 60px;
+}
+
+.list-node {
+  padding: 15px 25px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 8px;
+  font-weight: bold;
+  color: #ff69b4;
 }

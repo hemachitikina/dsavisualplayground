@@ -1,4 +1,3 @@
-// TreeVisualizer.jsx
 import React, { useState } from "react";
 import "./TreeVisualizer.css";
 
@@ -15,6 +14,7 @@ const TreeVisualizer = () => {
   const [inputValue, setInputValue] = useState("");
   const [traversalResult, setTraversalResult] = useState("");
   const [treeType, setTreeType] = useState("");
+  const [treeHeight, setTreeHeight] = useState(0);
 
   const insertNode = (value) => {
     const newNode = new TreeNode(value);
@@ -23,52 +23,47 @@ const TreeVisualizer = () => {
     } else {
       const insert = (node) => {
         if (value < node.value) {
-          if (!node.left) node.left = newNode;
-          else insert(node.left);
+          node.left ? insert(node.left) : (node.left = newNode);
         } else {
-          if (!node.right) node.right = newNode;
-          else insert(node.right);
+          node.right ? insert(node.right) : (node.right = newNode);
         }
       };
       insert(root);
       setRoot({ ...root });
     }
 
-    // After insert, check tree type
-    setTimeout(() => {
-      detectTreeType();
-    }, 0);
+    setTraversalResult("");
+    setTimeout(() => detectTreeType(), 0);
   };
 
   const handleInsert = () => {
-    if (inputValue === "") return;
+    if (inputValue.trim() === "") return;
     insertNode(parseInt(inputValue));
     setInputValue("");
   };
 
-  // Traversals
-  const inOrder = (node, result = []) => {
+  const inOrder = (node, res = []) => {
     if (!node) return;
-    inOrder(node.left, result);
-    result.push(node.value);
-    inOrder(node.right, result);
-    return result;
+    inOrder(node.left, res);
+    res.push(node.value);
+    inOrder(node.right, res);
+    return res;
   };
 
-  const preOrder = (node, result = []) => {
+  const preOrder = (node, res = []) => {
     if (!node) return;
-    result.push(node.value);
-    preOrder(node.left, result);
-    preOrder(node.right, result);
-    return result;
+    res.push(node.value);
+    preOrder(node.left, res);
+    preOrder(node.right, res);
+    return res;
   };
 
-  const postOrder = (node, result = []) => {
+  const postOrder = (node, res = []) => {
     if (!node) return;
-    postOrder(node.left, result);
-    postOrder(node.right, result);
-    result.push(node.value);
-    return result;
+    postOrder(node.left, res);
+    postOrder(node.right, res);
+    res.push(node.value);
+    return res;
   };
 
   const handleTraversal = (type) => {
@@ -79,18 +74,12 @@ const TreeVisualizer = () => {
     setTraversalResult(result.join(", "));
   };
 
-  // Tree Type Detection
   const detectTreeType = () => {
-    if (!root) {
-      setTreeType("");
-      return;
-    }
+    if (!root) return setTreeType("");
 
     let isFull = true;
     let isComplete = true;
     let isBalanced = true;
-    let queue = [];
-    queue.push(root);
     let foundNullChild = false;
 
     const height = (node) => {
@@ -98,55 +87,45 @@ const TreeVisualizer = () => {
       return 1 + Math.max(height(node.left), height(node.right));
     };
 
-    const getHeight = height(root);
-
     const check = (node) => {
       if (!node) return 0;
-      let leftHeight = check(node.left);
-      let rightHeight = check(node.right);
+      const left = check(node.left);
+      const right = check(node.right);
 
-      if (Math.abs(leftHeight - rightHeight) > 1) isBalanced = false;
+      if (Math.abs(left - right) > 1) isBalanced = false;
       if (node.left && !node.right) isComplete = isComplete && !foundNullChild;
       if (!node.left && node.right) isComplete = false;
-      if ((node.left && !node.right) || (!node.left && node.right))
-        isFull = false;
       if (!node.left || !node.right) foundNullChild = true;
+      if ((node.left && !node.right) || (!node.left && node.right)) isFull = false;
 
-      return 1 + Math.max(leftHeight, rightHeight);
+      return 1 + Math.max(left, right);
     };
 
+    const finalHeight = height(root);
     check(root);
+    setTreeHeight(finalHeight);
 
     let result = "Binary Tree";
     if (isFull) result = "Full Binary Tree";
-    if (isComplete) result = result + " | Complete Binary Tree";
-    if (isBalanced) result = result + " | Balanced Binary Tree";
+    if (isComplete) result += " | Complete Binary Tree";
+    if (isBalanced) result += " | Balanced Binary Tree";
 
     setTreeType(result);
   };
 
-  // Render tree recursively
   const renderTree = (node, x = 700, y = 50, level = 1) => {
     if (!node) return null;
-
-    const leftX = x - 150 / level;
-    const rightX = x + 150 / level;
+    const spacing = 150 / level;
+    const leftX = x - spacing;
+    const rightX = x + spacing;
     const nextY = y + 100;
 
     return (
       <React.Fragment key={node.value}>
-        {/* Node */}
-        <div
-          className="tree-node"
-          style={{
-            left: `${x}px`,
-            top: `${y}px`,
-          }}
-        >
+        <div className="tree-node" style={{ left: `${x}px`, top: `${y}px` }}>
           {node.value}
         </div>
 
-        {/* Lines */}
         {node.left && (
           <svg className="tree-line">
             <line
@@ -154,7 +133,7 @@ const TreeVisualizer = () => {
               y1={y + 25}
               x2={leftX + 25}
               y2={nextY + 25}
-              stroke="#555"
+              stroke="#333"
               strokeWidth="2"
               markerEnd="url(#arrow)"
             />
@@ -168,14 +147,13 @@ const TreeVisualizer = () => {
               y1={y + 25}
               x2={rightX + 25}
               y2={nextY + 25}
-              stroke="#555"
+              stroke="#333"
               strokeWidth="2"
               markerEnd="url(#arrow)"
             />
           </svg>
         )}
 
-        {/* Children */}
         {renderTree(node.left, leftX, nextY, level + 1)}
         {renderTree(node.right, rightX, nextY, level + 1)}
       </React.Fragment>
@@ -205,9 +183,15 @@ const TreeVisualizer = () => {
 
         <h3>Tree Type:</h3>
         <p>{treeType}</p>
+
+        {treeHeight > 0 && (
+          <>
+            <h3>Tree Height:</h3>
+            <p>{treeHeight}</p>
+          </>
+        )}
       </div>
 
-      {/* SVG marker for arrow */}
       <svg style={{ height: 0 }}>
         <defs>
           <marker
@@ -219,7 +203,7 @@ const TreeVisualizer = () => {
             orient="auto"
             markerUnits="strokeWidth"
           >
-            <path d="M0,0 L0,10 L10,5 z" fill="#555" />
+            <path d="M0,0 L0,10 L10,5 z" fill="#333" />
           </marker>
         </defs>
       </svg>

@@ -1,49 +1,80 @@
 .stack-container {
   text-align: center;
-  padding: 2rem;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.stack {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  min-height: 250px;
-  padding: 10px;
+.stack-controls {
   margin-bottom: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  background: #f9f9f9;
 }
 
-.stack-element {
-  width: 100px;
-  padding: 12px;
-  margin: 6px 0;
-  background-color: #3498db;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.stack-element.animate {
-  transform: scale(1.1);
-  background-color: #2ecc71;
-}
-
-.buttons button {
-  margin: 0 10px;
-  padding: 10px 20px;
+.stack-controls input {
+  padding: 8px;
   font-size: 16px;
+  width: 150px;
+  margin-right: 8px;
+}
+
+.stack-controls button {
+  padding: 8px 12px;
+  margin: 4px;
+  font-size: 14px;
+  cursor: pointer;
   border: none;
   background-color: #4caf50;
   color: white;
-  cursor: pointer;
-  border-radius: 5px;
+  border-radius: 4px;
   transition: background 0.3s;
 }
 
-.buttons button:hover {
-  background-color: #45a049;
+.stack-controls button:hover {
+  background-color: #388e3c;
 }
+
+.stack-visual {
+  display: flex;
+  flex-direction: column; /* NOT column-reverse */
+  align-items: center;
+  gap: 10px;
+  min-height: 300px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  margin: auto;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.stack-item {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  position: relative; /* IMPORTANT for top-label */
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.stack-item.highlight {
+  background-color: orange;
+  transform: scale(1.1);
+}
+
+.top-label {
+  position: absolute;
+  top: -24px; /* Above the block */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  background-color: #333;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  z-index: 10;
+}
+.stack-message {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  min-height: 20px;
+}
+
