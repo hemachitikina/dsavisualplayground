@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+import Navbar from './components/Visualizer/Navbar'; 
+
 import ArrayVisualizer from './components/Visualizer/ArrayVisualizer';
 import StackVisualizer from './components/Visualizer/StackVisualizer';
 import QueueVisualizer from './components/Visualizer/QueueVisualizer';
@@ -16,20 +20,26 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>DSA Visual Playground</h1>
-      <p>Backend says: {backendMessage}</p>
+    <Router>
+      <div style={{ fontFamily: 'Arial' }}>
+        <Navbar />
+        <div style={{ padding: '2rem' }}>
+          <h1>DSA Visual Playground</h1>
+          <p>Backend says: {backendMessage}</p>
 
-      <ArrayVisualizer />
-      <StackVisualizer />
-      <QueueVisualizer />
-      <LinkedListVisualizer />
-      <GraphVisualizer />
-      <TreeVisualizer />
-    </div>
+          <Routes>
+            <Route path="/" element={<Navigate to="/array" />} />
+            <Route path="/array" element={<ArrayVisualizer />} />
+            <Route path="/stack" element={<StackVisualizer />} />
+            <Route path="/queue" element={<QueueVisualizer />} />
+            <Route path="/linkedlist" element={<LinkedListVisualizer />} />
+            <Route path="/graph" element={<GraphVisualizer />} />
+            <Route path="/tree" element={<TreeVisualizer />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
 export default App;
-
-

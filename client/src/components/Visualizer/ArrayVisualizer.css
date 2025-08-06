@@ -1,76 +1,100 @@
+/* ArrayVisualizer.css */
+
 .array-container {
-  padding: 2rem;
-  text-align: center;
+  padding: 30px;
+  background-color: #f5f9ff;
+  min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.array-container h2 {
+  font-size: 32px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.status {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .array-bars {
   display: flex;
-  align-items: flex-end;
   justify-content: center;
-  height: 300px;
-  margin: 30px 0;
-  border: 2px solid #ddd;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
+  align-items: flex-end;
+  gap: 10px;
+  min-height: 200px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
 .array-bar {
-  position: relative;
-  width: 30px;
-  margin: 0 5px;
-  background-color: #0077ff;
-  transition: height 0.3s ease, background-color 0.3s ease;
-  border-radius: 5px;
+  width: 40px;
+  background-color: #3f51b5;
+  color: white;
+  text-align: center;
+  transition: all 0.4s ease;
+  border-radius: 6px 6px 0 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  position: relative;
 }
 
 .array-bar.found {
-  background-color: #28a745;
+  background-color: #4caf50 !important;
+  animation: pulse 1s ease-in-out infinite;
 }
 
 .bar-label {
   position: absolute;
-  top: -22px;
-  font-size: 12px;
-  font-weight: bold;
+  bottom: -22px;
+  font-size: 14px;
   color: #333;
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 12px;
+  justify-content: center;
 }
 
 button {
-  padding: 10px 18px;
+  padding: 10px 16px;
   font-size: 14px;
-  cursor: pointer;
-  background-color: #222;
-  color: #fff;
+  font-weight: 500;
+  background-color: #1976d2;
+  color: white;
   border: none;
   border-radius: 6px;
-  transition: background-color 0.2s ease;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
 }
 
-button:hover:enabled {
-  background-color: #444;
+button:hover:not(:disabled) {
+  background-color: #125a9c;
 }
 
 button:disabled {
-  background-color: #aaa;
+  background-color: #9e9e9e;
   cursor: not-allowed;
 }
 
-.status {
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #555;
+/* Animation for found element */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 10px rgba(76, 175, 80, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
 }
