@@ -2,11 +2,11 @@
   text-align: center;
   margin: 20px auto;
   padding: 20px;
-  border: 2px solid #ff69b4;
+  border: 2px solid #6c757d;
   border-radius: 12px;
   width: 90%;
   max-width: 800px;
-  background-color: #fff0f5;
+  background-color: whitesmoke;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -28,13 +28,13 @@
   cursor: pointer;
   border: none;
   border-radius: 6px;
-  background-color: #ff69b4;
+  background-color: #6c757d;
   color: white;
   transition: background-color 0.3s ease;
 }
 
 .linkedlist-controls button:hover {
-  background-color: #d94d94;
+  background-color: #5a6268;
 }
 
 .linkedlist-message {
@@ -50,17 +50,17 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 10px;
-  border: 1px dashed #ff69b4;
+  border: 1px dashed #6c757d;
   border-radius: 8px;
-  background-color: #ffe4ec;
+  background-color: whitesmoke;
   min-height: 60px;
 }
 
 .list-node {
   padding: 15px 25px;
-  border: 2px solid #ff69b4;
+  border: 2px solid #6c757d;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #6c757d;
   font-size: 18px;
   position: relative;
   display: flex;
@@ -70,5 +70,21 @@
 .arrow {
   margin-left: 8px;
   font-weight: bold;
-  color: #ff69b4;
+  color: #6c757d;
+}
+.back-button1 {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #6c757d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.back-button1:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
 }

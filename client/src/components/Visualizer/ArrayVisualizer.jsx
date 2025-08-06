@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import './ArrayVisualizer.css';
+import { Link } from 'react-router-dom';
+
 
 function ArrayVisualizer() {
   const [array, setArray] = useState([10, 30, 20, 5, 40]);
   const [message, setMessage] = useState('');
   const [isSorting, setIsSorting] = useState(false);
   const [searchIndex, setSearchIndex] = useState(null);
+  const [speed, setSpeed] = useState(300);
 
-  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  const updateArray = async (newArray, delayMs = 300) => {
+  const updateArray = async (newArray, delayMs = speed) => {
     setArray([...newArray]);
     await delay(delayMs);
   };
@@ -214,8 +217,24 @@ function ArrayVisualizer() {
 
   return (
     <div className="array-container">
+      <Link to="/" className="back-button">← Back to Dashboard</Link>
+
       <h2>Array Visualizer</h2>
       <p className="status">{message}</p>
+       {/* 🕹 Speed Control Slider */}
+      <div className="speed-control">
+        <label>Speed: {speed}ms</label>
+        <input
+          type="range"
+          min="50"
+          max="1000"
+          step="50"
+          value={speed}
+          disabled={isSorting}
+          onChange={e => setSpeed(Number(e.target.value))}
+        />
+      </div>
+
 
       <div className="array-bars">
         {(() => {

@@ -1,80 +1,128 @@
 .stack-container {
   text-align: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #6c757d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.back-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.2rem;
+}
+
+.stack-message {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  min-height: 22px;
 }
 
 .stack-controls {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 .stack-controls input {
-  padding: 8px;
-  font-size: 16px;
-  width: 150px;
-  margin-right: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  width: 160px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .stack-controls button {
-  padding: 8px 12px;
-  margin: 4px;
-  font-size: 14px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
   cursor: pointer;
   border: none;
-  background-color: #4caf50;
-  color: white;
-  border-radius: 4px;
-  transition: background 0.3s;
+  background-color: #6c757d;
+  color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 .stack-controls button:hover {
-  background-color: #388e3c;
+  background-color: #5a6268;
+  transform: scale(1.02);
+}
+.stack-controls button:disabled {
+  background-color: #a4c8f0;
+  cursor: not-allowed;
 }
 
 .stack-visual {
   display: flex;
-  flex-direction: column; /* NOT column-reverse */
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  min-height: 300px;
-  border: 2px solid #ccc;
-  padding: 10px;
-  width: 200px;
-  margin: auto;
-  background-color: #f9f9f9;
+  gap: 14px;
+  min-height: 320px;
+  width: 260px;
+  margin: 0 auto 2rem;
+  padding: 12px;
+  border: 2px solid #6c757d;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .stack-item {
-  background-color: #2196f3;
+  background-color: #6c757d;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 4px;
-  position: relative; /* IMPORTANT for top-label */
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  font-size: 1rem;
   transition: transform 0.3s, background-color 0.3s;
 }
 
 .stack-item.highlight {
-  background-color: orange;
-  transform: scale(1.1);
+  background-color: #ff9800;
+  transform: scale(1.05);
 }
 
 .top-label {
   position: absolute;
-  top: -24px; /* Above the block */
+  top: -28px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 12px;
-  background-color: #333;
+  font-size: 0.85rem;
+  background-color: #444;
   color: #fff;
-  padding: 2px 6px;
-  border-radius: 3px;
-  z-index: 10;
-}
-.stack-message {
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #333;
-  min-height: 20px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  z-index: 1;
 }
 
+/* Responsive adjustment */
+@media (max-width: 480px) {
+  .stack-container { padding: 20px; }
+  .stack-controls input { width: 120px; }
+  .stack-visual { width: 200px; }
+  .stack-item { padding: 10px 16px; font-size: 0.9rem; }
+}

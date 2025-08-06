@@ -2,11 +2,11 @@
   text-align: center;
   margin: 20px auto;
   padding: 20px;
-  border: 2px solid #00bfff;
+  border: 2px solid #6c757d;
   border-radius: 12px;
   width: 90%;
   max-width: 800px;
-  background-color: #f0f8ff;
+  background-color: whitesmoke;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -28,13 +28,13 @@
   cursor: pointer;
   border: none;
   border-radius: 6px;
-  background-color: #00bfff;
+  background-color: #6c757d;
   color: white;
   transition: background-color 0.3s ease;
 }
 
 .queue-controls button:hover {
-  background-color: #009acd;
+  background-color: #5a6268;
 }
 
 .queue-message {
@@ -50,15 +50,15 @@
   flex-wrap: wrap;
   gap: 10px;
   padding: 10px;
-  border: 1px dashed #00bfff;
+  border: 1px dashed #6c757d;
   border-radius: 8px;
-  background-color: #e6f7ff;
+  background-color: whitesmoke;
   min-height: 60px;
 }
 
 .queue-item {
   padding: 15px 25px;
-  border: 2px solid #00bfff;
+  border: 2px solid #6c757d;
   border-radius: 8px;
   background-color: #fff;
   font-size: 18px;
@@ -67,7 +67,7 @@
 }
 
 .queue-item.highlight {
-  background-color: #ffff99;
+  background-color: #fff;
   transform: scale(1.1);
 }
 
@@ -79,4 +79,19 @@
   font-size: 12px;
   font-weight: bold;
   color: #ff4500;
+}
+.back-button2 {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.back-button2:hover {
+  background-color: #5a6268;
 }

@@ -67,6 +67,8 @@ function LinkedListVisualizer() {
 
   return (
     <div className="linkedlist-container">
+      <a href="/" className="back-button1">← Back to Dashboard</a>
+
       <h2>Linked List Visualizer</h2>
 
       <div className="linkedlist-controls">

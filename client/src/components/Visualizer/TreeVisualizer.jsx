@@ -160,8 +160,16 @@ const TreeVisualizer = () => {
     );
   };
 
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="tree-visualizer-container">
+      <button className="back-button" onClick={handleBack}>
+        ← Back to Dashboard
+      </button>
+
       <div className="controls">
         <input
           type="number"

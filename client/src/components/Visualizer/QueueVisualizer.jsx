@@ -5,7 +5,7 @@ const QueueVisualizer = () => {
   const [queue, setQueue] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [highlightFront, setHighlightFront] = useState(false);
-  const [message, setMessage] = useState(""); // NEW
+  const [message, setMessage] = useState("");
 
   const handleEnqueue = () => {
     if (inputValue === "") {
@@ -45,6 +45,8 @@ const QueueVisualizer = () => {
 
   return (
     <div className="queue-container">
+      <a href="/" className="back-button2">← Back to Dashboard</a>
+
       <h2>Queue Visualizer (FIFO)</h2>
 
       <div className="queue-controls">
@@ -60,10 +62,8 @@ const QueueVisualizer = () => {
         <button onClick={handleReset}>Reset</button>
       </div>
 
-      {/* Message */}
       <div className="queue-message">{message}</div>
 
-      {/* Queue visual */}
       <div className="queue-visual">
         {queue.map((item, index) => {
           const isFront = index === 0;

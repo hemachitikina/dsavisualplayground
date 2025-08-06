@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./StackVisualizer.css";
 
 const StackVisualizer = () => {
@@ -8,7 +9,7 @@ const StackVisualizer = () => {
   const [message, setMessage] = useState(""); // NEW
 
   const handlePush = () => {
-    if (inputValue === "") {
+    if (!inputValue.trim()) {
       setMessage("Please enter a value to push.");
       return;
     }
@@ -32,9 +33,9 @@ const StackVisualizer = () => {
       setMessage("Stack is empty. Nothing to peek.");
       return;
     }
-    const topItem = stack[stack.length - 1];
+    const top = stack[stack.length - 1];
     setHighlightTop(true);
-    setMessage(`Peeked: "${topItem}"`);
+    setMessage(`Peeked: "${top}"`);
     setTimeout(() => setHighlightTop(false), 1000);
   };
 
@@ -45,6 +46,9 @@ const StackVisualizer = () => {
 
   return (
     <div className="stack-container">
+      {/* 🚀 Back-to-Dashboard Link */}
+      <Link to="/" className="back-button">← Back to Dashboard</Link>
+
       <h2>Stack Visualizer (LIFO)</h2>
 
       <div className="stack-controls">
@@ -60,13 +64,11 @@ const StackVisualizer = () => {
         <button onClick={handleReset}>Reset</button>
       </div>
 
-      {/* Message */}
       <div className="stack-message">{message}</div>
 
-      {/* Stack visual */}
       <div className="stack-visual">
         {[...stack].reverse().map((item, index) => {
-          const isTop = index === 0; // After reverse, index 0 is top
+          const isTop = index === 0;
           return (
             <div
               key={index}

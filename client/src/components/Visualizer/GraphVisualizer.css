@@ -27,7 +27,7 @@
 .controls input {
   padding: 8px 12px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #6c757d;
   border-radius: 8px;
   width: 150px;
 }
@@ -35,7 +35,7 @@
 .controls button {
   padding: 8px 16px;
   font-size: 16px;
-  background-color: #4f46e5;
+  background-color: #6c757d;
   color: white;
   border: none;
   border-radius: 8px;
@@ -44,7 +44,7 @@
 }
 
 .controls button:hover {
-  background-color: #4338ca;
+  background-color: #5a6268;
 }
 
 .graph-visualization {
@@ -62,7 +62,7 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  background-color: #06b6d4;
+  background-color: #6c757d;
   color: white;
   font-weight: bold;
   display: flex;
@@ -99,3 +99,18 @@
   transition: background-color 0.4s ease;
 }
 
+.back-button3 {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.back-button3:hover {
+  background-color: #5a6268;
+}

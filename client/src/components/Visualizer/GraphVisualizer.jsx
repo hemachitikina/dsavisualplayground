@@ -135,6 +135,7 @@ const GraphVisualizer = () => {
 
   return (
     <div className="graph-container">
+      <a href="/" className="back-button3">← Back to Dashboard</a>
       <h2 className="graph-title">Graph Visualizer</h2>
 
       <div className="controls">
