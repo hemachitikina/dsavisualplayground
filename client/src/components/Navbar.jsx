@@ -22,7 +22,7 @@ function Navbar() {
         </li>
         <li>
           <a
-            href="https://github.com/hemachitikina/dsaplayble"
+            href="https://github.com/hemachitikina/dsavisualplayground.git"
             target="_blank"
             rel="noopener noreferrer"
           >
