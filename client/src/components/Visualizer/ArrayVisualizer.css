@@ -1,20 +1,30 @@
 .array-container {
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
   min-height: 100vh;
   background: linear-gradient(to right, #f0f4f8, #ffffff);
   font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .back-button {
   display: inline-block;
-  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   background-color: #6c757d;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s;
+  font-size: 0.9rem;
 }
 
 .back-button:hover {
@@ -22,7 +32,7 @@
 }
 
 .array-container h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #2c3e50;
 }
@@ -30,7 +40,8 @@
 .status {
   font-size: 1rem;
   color: #444;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  min-height: 1.5rem;
 }
 
 .array-bars {
@@ -38,7 +49,7 @@
   align-items: flex-end;
   justify-content: center;
   height: 280px;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   gap: 10px;
   padding: 0 1rem;
   overflow-x: auto;
@@ -70,77 +81,255 @@
   user-select: none;
 }
 
-.buttons {
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.input-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
-.buttons button {
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
-  border: none;
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f8f9fa;
+  padding: 0.8rem;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: #333;
+  min-width: 80px;
+  text-align: right;
+}
+
+.input-group input {
+  padding: 8px;
+  width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.input-group button {
+  padding: 8px 12px;
   background-color: #6c757d;
   color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 0.85rem;
+  transition: background-color 0.3s;
 }
 
-.buttons button:hover {
+.input-group button:hover {
   background-color: #5a6268;
 }
 
-.buttons button:disabled {
+.action-buttons, .sort-buttons, .sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.action-buttons button, .sort-buttons button, .sort-controls button {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #6c757d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-buttons button:hover, .sort-buttons button:hover, .sort-controls button:hover {
+  background-color: #5a6268;
+}
+
+.action-buttons button:disabled, .sort-buttons button:disabled, .sort-controls button:disabled {
   background-color: #bdc3c7;
   cursor: not-allowed;
 }
+
 .speed-control {
-  margin: 1rem 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  margin: 1rem 0;
 }
 
 .speed-control label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #6c757d;
 }
 
 .speed-control input[type="range"] {
   width: 200px;
   cursor: pointer;
+}
 
-}
-.input-builder {
-  margin: 1rem 0;
+.array-stats {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
   justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
-.input-builder input {
-  padding: 8px;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+.array-stats div {
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.input-builder label {
-  font-size: 0.95rem;
-  color: #333;
-}
-.input-builder button {
-  padding: 8px 14px;
+
+.tutorial-button {
+  padding: 0.5rem 1rem;
   background-color: #6c757d;
-  color: white;
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
 }
-.input-builder button:hover {
+
+.tutorial-button:hover {
   background-color: #5a6268;
 }
 
+.tutorial-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.tutorial-modal h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.close-tutorial {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.tutorial-content {
+  margin-top: 1rem;
+}
+
+.tutorial-item {
+  margin-bottom: 1.2rem;
+}
+
+.tutorial-item h4 {
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.pseudocode {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem auto;
+  max-width: 600px;
+  white-space: pre-wrap;
+  font-family: monospace;
+  text-align: left;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pseudocode h4 {
+  margin-top: 0;
+  color: #6c757d;
+  text-align: center;
+}
+
+.pause-button {
+  background-color: #f39c12 !important;
+}
+
+.resume-button {
+  background-color: #27ae60 !important;
+}
+
+.stop-button {
+  background-color: #e74c3c !important;
+}
+
+@media (max-width: 768px) {
+  .array-container {
+    padding: 1rem;
+  }
+
+  .array-bars {
+    gap: 6px;
+    height: 220px;
+  }
+  
+  .array-bar {
+    width: 20px;
+  }
+
+  .input-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-group {
+    width: 100%;
+    max-width: 300px;
+    justify-content: space-between;
+  }
+
+  .input-group label {
+    min-width: 70px;
+    text-align: left;
+  }
+
+  .action-buttons, .sort-buttons, .sort-controls {
+    gap: 0.6rem;
+  }
+
+  .action-buttons button, .sort-buttons button, .sort-controls button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .array-stats div {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}

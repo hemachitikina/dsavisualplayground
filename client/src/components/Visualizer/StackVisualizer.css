@@ -34,6 +34,7 @@ h2 {
   font-size: 1rem;
   color: #333;
   min-height: 22px;
+  font-weight: 500;
 }
 
 .stack-controls {
@@ -42,6 +43,7 @@ h2 {
   align-items: center;
   gap: 0.6rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .stack-controls input {
@@ -70,6 +72,10 @@ h2 {
 .stack-controls button:disabled {
   background-color: #a4c8f0;
   cursor: not-allowed;
+}
+
+.tutorial-button {
+  background-color: #17a2b8 !important;
 }
 
 .stack-visual {
@@ -119,10 +125,71 @@ h2 {
   z-index: 1;
 }
 
+.empty-stack {
+  color: #6c757d;
+  font-style: italic;
+  margin-top: 140px;
+}
+
+.tutorial-section {
+  background-color: #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto 2rem;
+  max-width: 600px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-section h3 {
+  color: #333;
+  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.tutorial-section ul {
+  padding-left: 1.5rem;
+}
+
+.tutorial-section li {
+  margin-bottom: 0.5rem;
+}
+
+.stack-info {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #495057;
+}
+
+.speed-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.speed-control label {
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.speed-control input {
+  width: 120px;
+}
+
+.speed-control span {
+  font-weight: 600;
+  color: #333;
+}
+
 /* Responsive adjustment */
 @media (max-width: 480px) {
   .stack-container { padding: 20px; }
   .stack-controls input { width: 120px; }
   .stack-visual { width: 200px; }
   .stack-item { padding: 10px 16px; font-size: 0.9rem; }
+  .stack-controls button { padding: 8px 12px; }
+  .tutorial-section { padding: 0.8rem; }
 }

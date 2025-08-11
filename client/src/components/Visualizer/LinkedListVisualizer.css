@@ -10,6 +10,46 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.header-controls {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tutorial-button, .size-button {
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #5a6268;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.tutorial-button:hover, .size-button:hover {
+  background-color: #495056;
+}
+
+.tutorial-section {
+  background-color: #e9ecef;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: left;
+  border-left: 4px solid #6c757d;
+}
+
+.tutorial-section h3 {
+  margin-top: 0;
+  color: #343a40;
+}
+
+.tutorial-section ul {
+  padding-left: 20px;
+}
+
 .linkedlist-controls {
   margin-bottom: 20px;
 }
@@ -19,12 +59,21 @@
   font-size: 16px;
   width: 200px;
   margin-right: 10px;
+  border: 1px solid #6c757d;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .linkedlist-controls button {
   padding: 10px 15px;
   font-size: 16px;
-  margin: 5px;
   cursor: pointer;
   border: none;
   border-radius: 6px;
@@ -42,6 +91,9 @@
   font-weight: bold;
   color: #333;
   min-height: 20px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
 }
 
 .linkedlist-visual {
@@ -49,10 +101,10 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  padding: 10px;
+  padding: 20px;
   border: 1px dashed #6c757d;
   border-radius: 8px;
-  background-color: whitesmoke;
+  background-color: white;
   min-height: 60px;
 }
 
@@ -61,17 +113,34 @@
   border: 2px solid #6c757d;
   border-radius: 8px;
   background-color: #6c757d;
+  color: white;
   font-size: 18px;
   position: relative;
   display: flex;
   align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.empty-list {
+  color: #6c757d;
+  font-style: italic;
+  padding: 15px;
 }
 
 .arrow {
   margin-left: 8px;
   font-weight: bold;
-  color: #6c757d;
+  color: white;
 }
+
+.acknowledgement {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #6c757d;
+  border-top: 1px solid #dee2e6;
+  padding-top: 10px;
+}
+
 .back-button1 {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -84,6 +153,7 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .back-button1:hover {
   background-color: #5a6268;
   transform: translateY(-2px);

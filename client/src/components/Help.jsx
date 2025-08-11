@@ -10,84 +10,84 @@ function Help() {
 
       <section>
         <h2>Getting Started</h2>
-        <p>Select a data structure from the Home page (Array, Stack, Queue, Linked List, Graph, or Tree)</p>
-      </section>
-
-      <section>
-        <h2>1. Array Visualizer</h2>
+        <p>Select a data structure from the Home page to begin visualization. Each visualizer has:</p>
         <ul>
-          <li>Insert/Delete elements manually.</li>
-          <li>Shuffle or Reset the array.</li>
-          <li>Choose a sorting algorithm and adjust the speed using the slider.</li>
-          <li>Search highlights the found element in green.</li>
+          <li>Interactive controls for operations</li>
+          <li>Speed adjustment for animations</li>
+          <li>Status messages and statistics</li>
+          <li>Tutorial/help button for guidance</li>
         </ul>
       </section>
 
       <section>
-        <h2>2. Stack (LIFO)</h2>
+        <h2>Array Visualizer</h2>
         <ul>
-          <li>Use Push to add an element to the top.</li>
-          <li>Pop removes the top element; Peek highlights it.</li>
-          <li>Reset clears all elements.</li>
-          <li>Actions display acknowledgment messages.</li>
+          <li><strong>Load/Add Elements:</strong> Enter comma-separated numbers or single values</li>
+          <li><strong>Basic Operations:</strong> Insert, delete, search with immediate feedback</li>
+          <li><strong>Sorting:</strong> 6 algorithms with visual comparison and pseudocode</li>
+          <li><strong>Controls:</strong> Pause/resume, stop, and adjust animation speed</li>
         </ul>
       </section>
 
       <section>
-        <h2>3. Queue (FIFO)</h2>
+        <h2>Stack Visualizer (LIFO)</h2>
         <ul>
-          <li>Use Enqueue to add at rear, Dequeue to remove from front.</li>
-          <li>Peek highlights the front element.</li>
-          <li>Reset clears the queue.</li>
-          <li>Notification messages update on each action.</li>
+          <li><strong>Push:</strong> Add elements to the top of the stack</li>
+          <li><strong>Pop:</strong> Remove elements from the top</li>
+          <li><strong>Peek:</strong> View the top element without removal</li>
+          <li>Visual indicators show stack operations clearly</li>
         </ul>
       </section>
 
       <section>
-        <h2>4. Linked List</h2>
+        <h2>Queue Visualizer (FIFO)</h2>
         <ul>
-          <li>Insert at front or rear; delete from front or rear.</li>
-          <li>Peek front or rear values.</li>
-          <li>Reset rebuilds an empty list.</li>
-          <li>Visual nodes are connected with arrows → indicating list flow.</li>
+          <li><strong>Enqueue:</strong> Add elements to the rear</li>
+          <li><strong>Dequeue:</strong> Remove elements from the front</li>
+          <li><strong>Peek:</strong> View the front element</li>
+          <li>Clear front/rear highlighting during operations</li>
         </ul>
       </section>
 
       <section>
-        <h2>5. Graph Visualizer</h2>
+        <h2>Linked List Visualizer</h2>
         <ul>
-          <li>Add nodes and edges dynamically.</li>
-          <li>Set a start node and perform BFS or DFS traversals.</li>
-          <li>Traversal highlights visited nodes in order.</li>
-          <li>Graph layouts are automatically arranged in a circular pattern.</li>
+          <li>Insert/delete at both front and rear positions</li>
+          <li>Visual node connections with arrow indicators</li>
+          <li>Peek operations for front and rear values</li>
+          <li>Interactive node manipulation</li>
         </ul>
       </section>
 
       <section>
-        <h2>6. Tree Visualizer</h2>
+        <h2>Graph Visualizer</h2>
         <ul>
-          <li>Insert values to build a binary tree (BST logic).</li>
-          <li>Run In-order, Pre-order, and Post-order traversals.</li>
-          <li>Displays traversal results, tree height, and type info (full, complete, balanced).</li>
-          <li>Connected nodes visually represent parent-child relations with arrows during rendering.</li>
+          <li>Create up to 20 nodes with custom values</li>
+          <li>Add directed/undirected edges between nodes</li>
+          <li>BFS/DFS traversals with step-by-step highlighting</li>
+          <li>Automatic node arrangement with manual dragging</li>
         </ul>
       </section>
 
       <section>
-        <h2>🧠 Tips & Insights</h2>
+        <h2>Tree Visualizer</h2>
         <ul>
-          <li>Start with small numbers—great for understanding scale differences.</li>
-          <li>Keep sorting speed low for better clarity on transitions.</li>
-          <li>Peek and search actions briefly animate top/front items for emphasis.</li>
-          <li>Tree visualizer calculates structural properties—ideal for learning balanced vs. unbalanced trees.</li>
+          <li>Build binary search trees from comma-separated values</li>
+          <li>Three traversal methods with animation</li>
+          <li>Tree properties detection (balanced, complete, etc.)</li>
+          <li>Search functionality with path highlighting</li>
         </ul>
       </section>
 
       <section>
-        <h2>Why Visualize?</h2>
-        <p>
-          Visualization makes abstract operations (like algorithms and structural changes) easier to understand and remember. Seeing each step helps build both intuition and confidence. 
-        </p>
+        <h2>Tips & Tricks</h2>
+        <ul>
+          <li>Start with small datasets (5-10 elements) for clarity</li>
+          <li>Use slower speeds when learning new algorithms</li>
+          <li>Pay attention to color highlights during operations</li>
+          <li>Refer to pseudocode to connect visuals with logic</li>
+          <li>Try different input patterns to see varied behaviors</li>
+        </ul>
       </section>
     </div>
   );
